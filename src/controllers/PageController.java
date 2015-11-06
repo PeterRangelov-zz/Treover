@@ -61,7 +61,7 @@ public class PageController {
 		}
 		
 		try {
-			byte[] encoded = Files.readAllBytes(Paths.get("C:/Users/prangelov/workspace/Treover/WebContent/WEB-INF/table_template.html"));
+			byte[] encoded = Files.readAllBytes(Paths.get("/resources/table_template.txt"));
 			String html = String.format(new String(encoded), form.getName(), form.getUnit(), form.getSubject(), form.getText());
 			email.setHtml(html);
 			SendGrid.Response response = sendgrid.send(email);
