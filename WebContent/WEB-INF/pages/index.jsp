@@ -3,12 +3,12 @@
 <html>
 	<head>
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+		<link href=//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css rel="stylesheet">
 	</head>
 	
 	<body>
 		<div class="container">
-			
-				<h3>New request</h3>
+				<h3 class='text-success'>New request</h3>
 				<hr>
 			<div class=row>
 				<form method="post" action="/submit" enctype="multipart/form-data">

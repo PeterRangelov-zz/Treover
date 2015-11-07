@@ -60,12 +60,10 @@ public class PageController {
 		}
 		System.out.println(form);
 
-		System.out.println(System.getenv("SENDGRID_USERNAME"));
-		System.out.println(System.getenv("SENDGRID_PASSWORD"));
 		SendGrid sendgrid = new SendGrid(System.getenv("SENDGRID_USERNAME"), System.getenv("SENDGRID_PASSWORD"));
 		
 		Email email = new Email();
-		email.addTo("peter.rangelov11@gmail.com");
+		email.addTo(System.getenv("RECEPIENT_EMAIL"));
 		email.setFrom("do-not-reply@treover.com");
 		email.setSubject("New repair request from " + form.getName());
 		
