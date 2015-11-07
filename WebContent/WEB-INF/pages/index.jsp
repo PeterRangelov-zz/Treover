@@ -55,8 +55,8 @@
 						<br>
 						<button type=submit class="btn btn-success">Submit request</button>
 					</div>
-				</div>
-			</form>
+				</form>
+			</div>
 		</div>
 			
 		
