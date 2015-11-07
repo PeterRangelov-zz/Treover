@@ -65,7 +65,7 @@ public class PageController {
 		Email email = new Email();
 		email.addTo(System.getenv("RECEPIENT_EMAIL"));
 		email.setFrom("do-not-reply@treover.com");
-		email.setSubject("New repair request from " + form.getName());
+		email.setSubject("New request from " + form.getName());
 		
 		try {
 			email.addAttachment(form.getFile().getOriginalFilename(), form.getAsFile());
