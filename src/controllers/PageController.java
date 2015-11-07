@@ -42,7 +42,7 @@ public class PageController {
 		
 		String url = request.getRequestURL() + "/resources/table_template.txt";
 		System.out.println("Request URL --> " +url);
-		String encoded = IOUtils.toString(new URL(request.getRequestURL() + "/resources/table_template.txt"));
+		String encoded = IOUtils.toString(new URL(request.getRequestURL() + "resources/table_template.html"));
 		System.out.println(encoded);
 		
 		System.out.println("getIndexPage called");
