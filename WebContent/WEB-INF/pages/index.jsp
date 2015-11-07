@@ -8,7 +8,7 @@
 	
 	<body>
 		<div class="container">
-				<h3 class='text-success'>New request</h3>
+				<h3 class='text-success'>Place a maintenance request</h3>
 				<hr>
 			<div class=row>
 				<form method="post" action="/submit" enctype="multipart/form-data">
