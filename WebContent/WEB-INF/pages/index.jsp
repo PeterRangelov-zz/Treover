@@ -17,36 +17,31 @@
 				<form method="post" action="/submit" enctype="multipart/form-data">
 					<div class="col-xs-6">
 						<label for="name">Your name (required)</label>
-						<br>
 						<form:errors path="form.name" cssClass="text-danger"/>
-						<input name=name class=form-control value="" maxlength=30 >
+						<input name=name class=form-control maxlength=30 >
 					</div>
 					
 					<div class="col-xs-6">
 						<label for="unit">Unit (required)</label>
-						<br>
 						<form:errors path="form.unit" cssClass="text-danger"/>
-						<input name=unit class=form-control value="" maxlength=10 />
+						<input name=unit class=form-control maxlength=10 />
 					</div>
 					
 					
 					<div class="col-sm-12">
 						<label for="subject">Subject (required)</label>
-						<br>
 						<form:errors path="form.subject" cssClass="text-danger"/>
-						<input name=subject class=form-control value="" maxlength=30 >
+						<input name=subject class=form-control maxlength=30 >
 					</div>
 					
 					<div class="col-sm-12">
 						<label for="text">Please provide details (required)</label>
-						<br>
 						<form:errors path="form.text" cssClass="text-danger"/>
 						<textarea class=form-control rows="7" cols="50" name=text maxlength=1000></textarea>
 					</div>
 					
 					<div class="col-sm-12 ">
 						<label for="file">Upload photo</label>
-						<br>
 						<form:errors path="form.file"></form:errors>
 						<input type="file" name="file">
 					</div>
