@@ -79,7 +79,7 @@ public class PageController {
 		try {
 			String url = request.getRequestURL().toString();
 			System.out.println("Request URL --> " +url);
-			String encoded = IOUtils.toString(new URL(System.getenv("BASE_URL") + "resources/table_template.txt"));
+			String encoded = IOUtils.toString(new URL(System.getenv("BASE_URL") + "resources/table_template.html"));
 			System.out.println(encoded);
 			
 			String html = String.format(encoded, form.getName(), form.getUnit(), form.getSubject(), form.getText());

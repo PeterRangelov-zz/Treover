@@ -7,7 +7,7 @@
 	
 	<body>
 		<div class="container">
-			<h3>Maintenance request</h3>
+			<h3>New request</h3>
 			<hr>
 			<form method="post" action="/submit" enctype="multipart/form-data">
 				<div class="form-group required">
@@ -47,7 +47,7 @@
 				
 				<div class="form-group">
 					<br>
-					<button type=submit class="btn btn-success">Submit maintenance request</button>
+					<button type=submit class="btn btn-success">Submit request</button>
 				</div>
 				
 			</form>
