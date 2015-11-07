@@ -41,7 +41,7 @@
 						<label for="text">Please provide details (required)</label>
 						<br>
 						<form:errors path="form.text" cssClass="text-danger"/>
-						<textarea class=form-control rows="10" cols="50" name=text maxlength=1000></textarea>
+						<textarea class=form-control rows="7" cols="50" name=text maxlength=1000></textarea>
 					</div>
 					
 					<div class="col-sm-12 form-group">
@@ -60,6 +60,5 @@
 		</div>
 			
 		
-		<br>
 	</body>
 </html>
