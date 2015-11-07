@@ -52,7 +52,7 @@ public class PageController {
 	@RequestMapping(value = "/submit", method = RequestMethod.POST)
 	public ModelAndView submitForm(@Valid @ModelAttribute("form") Form form, BindingResult result, HttpServletRequest request) throws MalformedURLException, IOException {
 		System.out.println("submitForm called");
-		
+		System.out.println(form);
 		
 		
 		if (result.hasErrors()) {

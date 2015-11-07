@@ -18,26 +18,26 @@
 					<div class="col-xs-6">
 						<label for="name">Your name (required)</label>
 						<form:errors path="form.name" cssClass="text-danger"/>
-						<input name=name class=form-control maxlength=30 >
+						<input name=name class=form-control maxlength=30 value=${form.name} >
 					</div>
 					
 					<div class="col-xs-6">
 						<label for="unit">Unit (required)</label>
 						<form:errors path="form.unit" cssClass="text-danger"/>
-						<input name=unit class=form-control maxlength=10 />
+						<input name=unit class=form-control maxlength=10 value=${form.unit}>
 					</div>
 					
 					
 					<div class="col-xs-12">
 						<label for="subject">Subject (required)</label>
 						<form:errors path="form.subject" cssClass="text-danger"/>
-						<input name=subject class=form-control maxlength=30 >
+						<input name=subject class=form-control maxlength=30 value=${form.subject}>
 					</div>
 					
 					<div class="col-xs-12">
 						<label for="text">Please provide details (required)</label>
 						<form:errors path="form.text" cssClass="text-danger"/>
-						<textarea class=form-control rows="7" cols="50" name=text maxlength=1000></textarea>
+						<textarea class=form-control rows="7" cols="50" name=text maxlength=1000>${form.text}</textarea>
 					</div>
 					
 					<div class="col-xs-12 ">
