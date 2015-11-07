@@ -13,6 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.apache.commons.io.IOUtils;
@@ -37,20 +38,30 @@ import dto.Form;
 public class PageController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView getIndexPage() throws MalformedURLException, IOException, URISyntaxException {
+	public ModelAndView getIndexPage(HttpServletRequest request) throws MalformedURLException, IOException, URISyntaxException {
+		
+		String url = request.getRequestURL() + "/resources/table_template.txt";
+		System.out.println("Request URL --> " +url);
+		String encoded = IOUtils.toString(new URL(request.getRequestURL() + "/resources/table_template.txt"));
+		System.out.println(encoded);
+		
 		System.out.println("getIndexPage called");
 		return new ModelAndView("index");
 	}
 
 	@RequestMapping(value = "/submit", method = RequestMethod.POST)
-	public ModelAndView submitForm(@Valid @ModelAttribute("form") Form form, BindingResult result) {
+	public ModelAndView submitForm(@Valid @ModelAttribute("form") Form form, BindingResult result, HttpServletRequest request) throws MalformedURLException, IOException {
 		System.out.println("submitForm called");
+		
+		
 		
 		if (result.hasErrors()) {
 			return new ModelAndView("index");
 		}
 		System.out.println(form);
 
+		System.out.println(System.getenv("SENDGRID_USERNAME"));
+		System.out.println(System.getenv("SENDGRID_PASSWORD"));
 		SendGrid sendgrid = new SendGrid(System.getenv("SENDGRID_USERNAME"), System.getenv("SENDGRID_PASSWORD"));
 		
 		Email email = new Email();
@@ -66,9 +77,11 @@ public class PageController {
 		}
 		
 		try {
-			String url = "http://pastebin.com/raw.php?i=S22qT6vP";
-//			String filepath = "resources/table_template.txt";
-			String encoded = IOUtils.toString(new URL(url));
+			String url = request.getRequestURL().toString();
+			System.out.println("Request URL --> " +url);
+			String encoded = IOUtils.toString(new URL(System.getenv("BASE_URL") + "resources/table_template.txt"));
+			System.out.println(encoded);
+			
 			String html = String.format(encoded, form.getName(), form.getUnit(), form.getSubject(), form.getText());
 			email.setHtml(html);
 			SendGrid.Response response = sendgrid.send(email);
@@ -76,9 +89,9 @@ public class PageController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (SendGridException e) {
-			System.err.println(e);
+			e.printStackTrace();
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
 
 		ModelAndView m = new ModelAndView("thank_you");
