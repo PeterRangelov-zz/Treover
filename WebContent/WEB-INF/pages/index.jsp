@@ -15,14 +15,14 @@
 				<hr>
 			<div class=row>
 				<form method="post" action="/submit" enctype="multipart/form-data">
-					<div class="col-xs-6 form-group required">
+					<div class="col-xs-6">
 						<label for="name">Your name (required)</label>
 						<br>
 						<form:errors path="form.name" cssClass="text-danger"/>
 						<input name=name class=form-control value="" maxlength=30 >
 					</div>
 					
-					<div class="col-xs-6 form-group">
+					<div class="col-xs-6">
 						<label for="unit">Unit (required)</label>
 						<br>
 						<form:errors path="form.unit" cssClass="text-danger"/>
@@ -30,28 +30,28 @@
 					</div>
 					
 					
-					<div class="col-sm-12 form-group">
+					<div class="col-sm-12">
 						<label for="subject">Subject (required)</label>
 						<br>
 						<form:errors path="form.subject" cssClass="text-danger"/>
 						<input name=subject class=form-control value="" maxlength=30 >
 					</div>
 					
-					<div class="col-sm-12 form-group">
+					<div class="col-sm-12">
 						<label for="text">Please provide details (required)</label>
 						<br>
 						<form:errors path="form.text" cssClass="text-danger"/>
 						<textarea class=form-control rows="7" cols="50" name=text maxlength=1000></textarea>
 					</div>
 					
-					<div class="col-sm-12 form-group">
+					<div class="col-sm-12 ">
 						<label for="file">Upload photo</label>
 						<br>
 						<form:errors path="form.file"></form:errors>
 						<input type="file" name="file">
 					</div>
 					
-					<div class="col-sm-12 form-group">
+					<div class="col-sm-12 ">
 						<br>
 						<button type=submit class="btn btn-success">Submit request</button>
 					</div>
