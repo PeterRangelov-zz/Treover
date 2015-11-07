@@ -5,12 +5,17 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Map;
 
 import javax.validation.Valid;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -32,7 +37,7 @@ import dto.Form;
 public class PageController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView getIndexPage() {
+	public ModelAndView getIndexPage() throws MalformedURLException, IOException, URISyntaxException {
 		System.out.println("getIndexPage called");
 		return new ModelAndView("index");
 	}
@@ -61,8 +66,10 @@ public class PageController {
 		}
 		
 		try {
-			byte[] encoded = Files.readAllBytes(Paths.get("/resources/table_template.txt"));
-			String html = String.format(new String(encoded), form.getName(), form.getUnit(), form.getSubject(), form.getText());
+			String url = "http://pastebin.com/raw.php?i=S22qT6vP";
+//			String filepath = "resources/table_template.txt";
+			String encoded = IOUtils.toString(new URL(url));
+			String html = String.format(encoded, form.getName(), form.getUnit(), form.getSubject(), form.getText());
 			email.setHtml(html);
 			SendGrid.Response response = sendgrid.send(email);
 			System.out.println(response.getMessage());
