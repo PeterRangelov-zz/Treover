@@ -28,25 +28,25 @@
 					</div>
 					
 					
-					<div class="col-sm-12">
+					<div class="col-xs-12">
 						<label for="subject">Subject (required)</label>
 						<form:errors path="form.subject" cssClass="text-danger"/>
 						<input name=subject class=form-control maxlength=30 >
 					</div>
 					
-					<div class="col-sm-12">
+					<div class="col-xs-12">
 						<label for="text">Please provide details (required)</label>
 						<form:errors path="form.text" cssClass="text-danger"/>
 						<textarea class=form-control rows="7" cols="50" name=text maxlength=1000></textarea>
 					</div>
 					
-					<div class="col-sm-12 ">
+					<div class="col-xs-12 ">
 						<label for="file">Upload photo</label>
 						<form:errors path="form.file"></form:errors>
 						<input type="file" name="file">
 					</div>
 					
-					<div class="col-sm-12 ">
+					<div class="col-xs-12 ">
 						<br>
 						<button type=submit class="btn btn-success">Submit request</button>
 					</div>
